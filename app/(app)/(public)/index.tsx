@@ -5,6 +5,7 @@ import { Fonts } from "@/constants/theme";
 import AppleAuthButton from "@/components/auth/AppleAuthButton";
 import GoogleAuthButton from "@/components/auth/GoogleAuthButton";
 import OtherAuthButton from "@/components/auth/OtherAuthButton";
+import SmoothInfiniteScroll from "@/components/SmoothInfiniteScroll";
 
 const PublicIndex = () => {
   const openWebBrowser = () => {
@@ -14,7 +15,9 @@ const PublicIndex = () => {
   return (
     <View style={styles.container}>
       <View style={styles.infiniteScrollContainer}>
-        infinite scroll container
+        <SmoothInfiniteScroll scrollDirection="down" iconSet="set1"/>
+        <SmoothInfiniteScroll scrollDirection="up" iconSet="set2"/>
+        <SmoothInfiniteScroll scrollDirection="down" iconSet="set3"/>
       </View>
       <View style={styles.contentContainer}>
         <Image
@@ -66,6 +69,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     alignItems: "center",
+    paddingVertical: 20
   },
   brandLogo: {
     width: "100%",
@@ -104,5 +108,11 @@ const styles = StyleSheet.create({
 
   infiniteScrollContainer: {
     flex: 0.8,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 4,
+    overflow: "hidden",
+    position: "relative"
   },
 });
